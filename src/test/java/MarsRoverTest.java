@@ -11,4 +11,11 @@ public class MarsRoverTest {
 
         assertEquals(1, marsRover.getY());
     }
+
+    @Test
+    public void moveForwardEastBy1() {
+        MarsRover marsRover = new MarsRover(0, 0, "E");
+        marsRover.move("F");
+        assertEquals(1, marsRover.getX());
+    }
 }
