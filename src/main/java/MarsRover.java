@@ -16,7 +16,12 @@ public class MarsRover {
         if (direction == "N") {
             y++;
         }
-        x++;
+        if (direction == "W") {
+            x--;
+        }
+        if (direction == "E") {
+            x++;
+        }
     }
 
     public int getY() {
