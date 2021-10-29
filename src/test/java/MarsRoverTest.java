@@ -50,4 +50,18 @@ public class MarsRoverTest {
         assertEquals("S", marsRover.getDirection());
     }
 
+    @Test
+    public void turnRightWhenFacingSouth() {
+        MarsRover marsRover = new MarsRover(0, 0, "S");
+        marsRover.execute("R");
+        assertEquals("W", marsRover.getDirection());
+    }
+
+    @Test
+    public void turnRightWhenFacingWest() {
+        MarsRover marsRover = new MarsRover(0,0, "W");
+        marsRover.execute("R");
+        assertEquals("N", marsRover.getDirection());
+    }
+
 }

@@ -15,7 +15,12 @@ public class MarsRover {
         if (commands == "R") {
             if (direction == "N") {
                 direction = "E";
-            } else {
+            } else if (direction == "S") {
+                direction = "W";
+            } else if (direction == "W") {
+                direction = "N";
+            }
+            else {
                 direction = "S";
             }
         }
