@@ -5,6 +5,8 @@ import java.util.List;
 public class MarsRover {
     public static final int FORWARD = 1;
     public static final int BACKWARDS = -1;
+    public static final List<String> LEFT = Arrays.asList("W", "S", "E", "N");
+    public static final List<String> RIGHT = Arrays.asList("N", "E", "S", "W");
     private int y;
     private String direction;
     private int x;
@@ -17,16 +19,21 @@ public class MarsRover {
 
     public void execute(String commands) {
         if (commands == "R") {
-            List<String> compass = Arrays.asList("N", "E", "S", "W");
-            direction = compass.get((compass.indexOf(direction) + 1) % 4);
+            turn(RIGHT);
         }
-
+        if(commands == "L") {
+            turn(LEFT);
+        }
         if (commands == "F") {
             move(FORWARD);
         }
         if (commands == "B") {
             move(BACKWARDS);
         }
+    }
+
+    private void turn(List<String> compass) {
+        direction = compass.get((compass.indexOf(direction) + 1) % 4);
     }
 
     private void move(int distance) {

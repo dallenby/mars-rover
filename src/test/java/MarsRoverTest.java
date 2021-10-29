@@ -46,4 +46,18 @@ public class MarsRoverTest {
         marsRover.execute("R");
         assertEquals(expectedDirection, marsRover.getDirection());
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "N,W",
+            "W,S",
+            "S,E",
+            "E,N"
+    })
+    public void turningLeft(String direction, String expectedDirection) {
+        MarsRover marsRover = new MarsRover(0, 0, direction);
+        marsRover.execute("L");
+        assertEquals(expectedDirection, marsRover.getDirection());
+
+    }
 }
