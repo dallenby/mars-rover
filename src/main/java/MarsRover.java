@@ -1,4 +1,6 @@
 public class MarsRover {
+    public static final int FORWARD = 1;
+    public static final int BACKWARDS = -1;
     private int y;
     private String direction;
     private int x;
@@ -9,30 +11,26 @@ public class MarsRover {
         this.direction = direction;
     }
 
-    public void move(String commands) {
+    public void execute(String commands) {
         if (commands == "F") {
-            if (direction == "S") {
-                y--;
-            }
-            if (direction == "N") {
-                y++;
-            }
-            if (direction == "W") {
-                x--;
-            }
-            if (direction == "E") {
-                x++;
-            }
+            move(FORWARD);
+        } else {
+            move(BACKWARDS);
         }
-        else {
-            if(direction == "N")
-            {
-                y--;
-            }
-            if(direction == "S")
-            {
-                y++;
-            }
+    }
+
+    private void move(int distance) {
+        if (direction == "N") {
+            y+= distance;
+        }
+        if (direction == "E") {
+            x+= distance;
+        }
+        if (direction == "S") {
+            y-= distance;
+        }
+        if (direction == "W") {
+            x-= distance;
         }
     }
 
