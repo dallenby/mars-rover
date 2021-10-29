@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import javax.swing.plaf.basic.BasicArrowButton;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MarsRoverTest {
@@ -32,6 +34,20 @@ public class MarsRoverTest {
         marsRover.execute("B");
         assertEquals(expectedX, marsRover.getX());
         assertEquals(expectedY, marsRover.getY());
+    }
+
+    @Test
+    public void turnRightWhenFacingNorth() {
+        MarsRover marsRover = new MarsRover(0, 0, "N");
+        marsRover.execute("R");
+        assertEquals("E", marsRover.getDirection());
+    }
+
+    @Test
+    public void turnRightWhenFacingEast() {
+        MarsRover marsRover = new MarsRover(0, 0, "E");
+        marsRover.execute("R");
+        assertEquals("S", marsRover.getDirection());
     }
 
 }

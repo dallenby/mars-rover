@@ -12,9 +12,18 @@ public class MarsRover {
     }
 
     public void execute(String commands) {
+        if (commands == "R") {
+            if (direction == "N") {
+                direction = "E";
+            } else {
+                direction = "S";
+            }
+        }
+
         if (commands == "F") {
             move(FORWARD);
-        } else {
+        }
+        if (commands == "B") {
             move(BACKWARDS);
         }
     }
@@ -42,5 +51,9 @@ public class MarsRover {
 
     public int getX() {
         return x;
+    }
+
+    public String getDirection() {
+        return direction;
     }
 }
