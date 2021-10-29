@@ -20,17 +20,19 @@ public class MarsRover {
     }
 
     private void move(int distance) {
-        if (direction == "N") {
-            y+= distance;
-        }
-        if (direction == "E") {
-            x+= distance;
-        }
-        if (direction == "S") {
-            y-= distance;
-        }
-        if (direction == "W") {
-            x-= distance;
+        switch (direction) {
+            case "N":
+                y += distance;
+                break;
+            case "E":
+                x += distance;
+                break;
+            case "S":
+                y -= distance;
+                break;
+            case "W":
+                x -= distance;
+                break;
         }
     }
 
