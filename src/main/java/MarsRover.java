@@ -18,18 +18,25 @@ public class MarsRover {
     }
 
     public void execute(String commands) {
-        if (commands == "R") {
-            turn(RIGHT);
+        char[] splitCommands = commands.toCharArray();
+
+        for (int i = 0; i < splitCommands.length; i++) {
+            char command = splitCommands[i];
+            if (command == 'R') {
+                turn(RIGHT);
+            }
+            if(command == 'L') {
+                turn(LEFT);
+            }
+            if (command == 'F') {
+                move(FORWARD);
+            }
+            if (command == 'B') {
+                move(BACKWARDS);
+            }
         }
-        if(commands == "L") {
-            turn(LEFT);
-        }
-        if (commands == "F") {
-            move(FORWARD);
-        }
-        if (commands == "B") {
-            move(BACKWARDS);
-        }
+
+
     }
 
     private void turn(List<String> compass) {

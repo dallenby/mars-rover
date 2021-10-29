@@ -60,4 +60,11 @@ public class MarsRoverTest {
         assertEquals(expectedDirection, marsRover.getDirection());
 
     }
+
+    @Test
+    public void executingMoreThanOneCommand() {
+        MarsRover marsRover = new MarsRover(0,0, "N");
+        marsRover.execute("RF");
+        assertEquals(1,marsRover.getX());
+    }
 }
