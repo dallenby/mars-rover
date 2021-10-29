@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class MarsRover {
     public static final int FORWARD = 1;
     public static final int BACKWARDS = -1;
@@ -13,16 +17,8 @@ public class MarsRover {
 
     public void execute(String commands) {
         if (commands == "R") {
-            if (direction == "N") {
-                direction = "E";
-            } else if (direction == "S") {
-                direction = "W";
-            } else if (direction == "W") {
-                direction = "N";
-            }
-            else {
-                direction = "S";
-            }
+            List<String> compass = Arrays.asList("N", "E", "S", "W");
+            direction = compass.get((compass.indexOf(direction) + 1) % 4);
         }
 
         if (commands == "F") {
