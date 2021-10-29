@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MarsRover {
     public static final int FORWARD = 1;
@@ -18,24 +20,19 @@ public class MarsRover {
     }
 
     public void execute(String commands) {
+        Map<Character,Runnable> actions = new HashMap<Character,Runnable>() {{
+            put('R',() -> turn(RIGHT));
+            put('L', () -> turn(LEFT));
+            put('F', () -> move(FORWARD));
+            put('B', () -> move(BACKWARDS));
+        }};
+
         char[] splitCommands = commands.toCharArray();
 
         for (int i = 0; i < splitCommands.length; i++) {
             char command = splitCommands[i];
-            if (command == 'R') {
-                turn(RIGHT);
-            }
-            if(command == 'L') {
-                turn(LEFT);
-            }
-            if (command == 'F') {
-                move(FORWARD);
-            }
-            if (command == 'B') {
-                move(BACKWARDS);
-            }
+            actions.get(command).run();
         }
-
 
     }
 
