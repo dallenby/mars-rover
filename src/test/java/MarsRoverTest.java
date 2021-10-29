@@ -2,8 +2,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import javax.swing.plaf.basic.BasicArrowButton;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MarsRoverTest {
@@ -36,32 +34,16 @@ public class MarsRoverTest {
         assertEquals(expectedY, marsRover.getY());
     }
 
-    @Test
-    public void turnRightWhenFacingNorth() {
-        MarsRover marsRover = new MarsRover(0, 0, "N");
+    @ParameterizedTest
+    @CsvSource({
+            "N,E",
+            "E,S",
+            "S,W",
+            "W,N"
+    })
+    public void turningRight(String direction, String expectedDirection) {
+        MarsRover marsRover = new MarsRover(0, 0, direction);
         marsRover.execute("R");
-        assertEquals("E", marsRover.getDirection());
+        assertEquals(expectedDirection, marsRover.getDirection());
     }
-
-    @Test
-    public void turnRightWhenFacingEast() {
-        MarsRover marsRover = new MarsRover(0, 0, "E");
-        marsRover.execute("R");
-        assertEquals("S", marsRover.getDirection());
-    }
-
-    @Test
-    public void turnRightWhenFacingSouth() {
-        MarsRover marsRover = new MarsRover(0, 0, "S");
-        marsRover.execute("R");
-        assertEquals("W", marsRover.getDirection());
-    }
-
-    @Test
-    public void turnRightWhenFacingWest() {
-        MarsRover marsRover = new MarsRover(0,0, "W");
-        marsRover.execute("R");
-        assertEquals("N", marsRover.getDirection());
-    }
-
 }
