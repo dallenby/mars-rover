@@ -31,4 +31,18 @@ public class MarsRoverTest {
         marsRover.move("F");
         assertEquals(0, marsRover.getX());
     }
+
+    @Test
+    public void moveBackwardsFacingNorthBy1() {
+        MarsRover marsRover = new MarsRover(1, 1, "N");
+        marsRover.move("B");
+        assertEquals(0, marsRover.getY());
+    }
+
+    @Test
+    public void moveBackwardsFacingSouthBy1() {
+        MarsRover marsRover = new MarsRover(0, 0, "S");
+        marsRover.move("B");
+        assertEquals(1, marsRover.getY());
+    }
 }

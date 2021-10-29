@@ -10,17 +10,29 @@ public class MarsRover {
     }
 
     public void move(String commands) {
-        if (direction == "S") {
-            y--;
+        if (commands == "F") {
+            if (direction == "S") {
+                y--;
+            }
+            if (direction == "N") {
+                y++;
+            }
+            if (direction == "W") {
+                x--;
+            }
+            if (direction == "E") {
+                x++;
+            }
         }
-        if (direction == "N") {
-            y++;
-        }
-        if (direction == "W") {
-            x--;
-        }
-        if (direction == "E") {
-            x++;
+        else {
+            if(direction == "N")
+            {
+                y--;
+            }
+            if(direction == "S")
+            {
+                y++;
+            }
         }
     }
 
